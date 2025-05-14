@@ -25,7 +25,7 @@ let rec subst (v : value) (x : string) (e : expr) : expr =
       Let (y, e1', subst v x e2) (* substitute because x not shadowed by y *)
   | Fun (y, e1) ->
     if y = x then
-      Fun (y, e) (* same logic as above *)
+      Fun (y, e1) (* same logic as above *)
     else
       Fun (y, subst v x e1)
 
